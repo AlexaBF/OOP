@@ -175,8 +175,8 @@ void Automovil::llenaTanque(){
     cout<<"Cantidad de gasolina que requiere el automóvil para estar lleno "<<cantidad<<" litros."<<endl;
     cout<<"Tanque lleno"<<endl;
 }
+//-----------------IMPRIME TODA LA INFORMACIÓN DEL AUTOMÓVIL-------------------------------
 void Automovil::imprimeAutomovil(){
-    // imprime toda la información del automóvil.
     cout<<"--Datos del Automóvil--"<<endl;
     cout<<"Marca: "<<marca<<endl;
     cout<<"Modelo: "<<modelo<<endl;
