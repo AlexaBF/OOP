@@ -16,7 +16,7 @@ private:
     string modelo;
     string anio;
     float kilometraje;
-    int numPuertas;
+    int numPasajeros;
     string color;
     float rendimientos;
     float capacidadTanque;
@@ -24,11 +24,12 @@ private:
 
 public:
     Automovil();
+
     string getMarca();
     string getModelo();
     string getAnio();
     float getKilometraje();
-    int getNumPuertas();
+    int getnumPasajeros();
     float getRendimiento();
     float getCapacidadTanque();
     float getGasolinaEnTanque();
@@ -37,7 +38,7 @@ public:
     void setModelo(string _modelo);
     void setAnio(string _anio);
     void setKilometraje(float _kilometraje);
-    void setNumPuertas(int _numPuertar);
+    void setnumPasajeros(int _numPasajeros);
     void setColor(string _color);
     void setRendimientos(float _rendimientos);
     void setCapacidadTanque(float _capacidadTanque);
@@ -53,21 +54,21 @@ public:
     ~Automovil();
 };
 
-//-------------------------------------CONSTRUCTOR------------------------------------------------
+//-------------------------------------CONSTRUCTOR-------------------------------------------
 Automovil::Automovil(){
     marca = "KIA";
     modelo = "RIO";
     anio = "2023";
     kilometraje = 0;
-    numPuertas = 4;
+    numPasajeros = 5;
     color = "Gris";
     rendimientos = 14.39;
     capacidadTanque = 45;
     gasolinaEnTanque = 20;
 }
-//---------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 
-//-------------------------------------GETTERS---------------------------------------------
+//--------------------------------------GETTERS-----------------------------------------------
 string Automovil::getMarca(){
     return marca;
 }
@@ -80,8 +81,8 @@ string Automovil::getAnio(){
 float Automovil::getKilometraje(){
     return kilometraje;
 }
-int Automovil::getNumPuertas(){
-    return numPuertas;
+int Automovil::getnumPasajeros(){
+    return numPasajeros;
 }
 float Automovil::getRendimiento(){
     return rendimientos;
@@ -92,7 +93,7 @@ float Automovil::getCapacidadTanque(){
 float Automovil::getGasolinaEnTanque(){
     return gasolinaEnTanque;
 }
-//---------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 
 //--------------------------------------SETTERS-----------------------------------------------
 void Automovil::setMarca(string _marca){
@@ -107,8 +108,8 @@ void Automovil::setAnio(string _anio){
 void Automovil::setKilometraje(float _kilometraje){
     kilometraje = _kilometraje;
 }
-void Automovil::setNumPuertas(int _numPuertas){
-    numPuertas = _numPuertas;
+void Automovil::setnumPasajeros(int _numPasajeros){
+    numPasajeros = _numPasajeros;
 }
 void Automovil::setColor(string _color){
     color = _color;
@@ -123,7 +124,8 @@ void Automovil::setGasolinaEnTanque(float _gasolinaTanque){
     gasolinaEnTanque = _gasolinaTanque;
 }
 //---------------------------------------------------------------------------------------------
-//-----------------------------------FUNCIONES---------------------------------------------------
+//-----------------------------------FUNCIONES-------------------------------------------------
+//CALCULA SI EL AUTO PUEDE AVANZAR O NO PUEDE AVANZAR
 void Automovil::avanzaAutomovil(float distancia, int pasajeros){
     /*
     recibe los valores de la distancia en kilómetros que se desea avanzar y
@@ -157,7 +159,7 @@ void Automovil::calculaConsumo(float distancia, int pasajeros){
     gasolina para avanzar.
     */
     
-    if(numPuertas=pasajeros){
+    if(numPasajeros=pasajeros){
         
     }
    
@@ -175,14 +177,14 @@ void Automovil::llenaTanque(){
     cout<<"Cantidad de gasolina que requiere el automóvil para estar lleno "<<cantidad<<" litros."<<endl;
     cout<<"Tanque lleno"<<endl;
 }
-//-----------------IMPRIME TODA LA INFORMACIÓN DEL AUTOMÓVIL-------------------------------
+//IMPRIME TODA LA INFORMACIÓN DEL AUTOMÓVIL
 void Automovil::imprimeAutomovil(){
-    cout<<"--Datos del Automóvil--"<<endl;
+    cout<<"----Datos del Automóvil----"<<endl;
     cout<<"Marca: "<<marca<<endl;
     cout<<"Modelo: "<<modelo<<endl;
     cout<<"Anio: "<<anio<<endl;
     cout<<"Kilometraje: "<<kilometraje<<endl;
-    cout<<"Número de Puertas: "<<numPuertas<<endl;
+    cout<<"Número de Puertas: "<<numPasajeros<<endl;
     cout<<"Color: "<<color<<endl;
     cout<<"Rendimiento: "<<rendimientos<<endl;
     cout<<"Capacidad en Tanque: "<<capacidadTanque<<endl;

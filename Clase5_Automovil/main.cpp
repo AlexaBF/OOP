@@ -2,13 +2,11 @@
 Nombre: Alexa Basurto FlosinRepetir
 Matrícula: A01422793
 Fecha de creación: 19/01/2023
-Descripción: control de uso de autos
+Descripción: sistema de control de uso de autos
 */
 #include <iostream>
 #include "Automovil.h"
-
 using namespace std;
-
 
 int main(){
     cout<<"\nSistema de control de uso de autos\n"; 
