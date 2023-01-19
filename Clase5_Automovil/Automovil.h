@@ -53,7 +53,7 @@ public:
     ~Automovil();
 };
 
-// constructor
+//-------------------------------------CONSTRUCTOR------------------------------------------------
 Automovil::Automovil(){
     marca = "KIA";
     modelo = "RIO";
@@ -65,8 +65,9 @@ Automovil::Automovil(){
     capacidadTanque = 45;
     gasolinaEnTanque = 20;
 }
+//---------------------------------------------------------------------------------------------
 
-// getters
+//-------------------------------------GETTERS---------------------------------------------
 string Automovil::getMarca(){
     return marca;
 }
@@ -91,8 +92,9 @@ float Automovil::getCapacidadTanque(){
 float Automovil::getGasolinaEnTanque(){
     return gasolinaEnTanque;
 }
+//---------------------------------------------------------------------------------------------
 
-// setters
+//--------------------------------------SETTERS-----------------------------------------------
 void Automovil::setMarca(string _marca){
     marca = _marca;
 }
@@ -120,8 +122,8 @@ void Automovil::setCapacidadTanque(float _capacidadTanque){
 void Automovil::setGasolinaEnTanque(float _gasolinaTanque){
     gasolinaEnTanque = _gasolinaTanque;
 }
-
-// funciones
+//---------------------------------------------------------------------------------------------
+//-----------------------------------FUNCIONES---------------------------------------------------
 void Automovil::avanzaAutomovil(float distancia, int pasajeros){
     /*
     recibe los valores de la distancia en kilómetros que se desea avanzar y
@@ -215,7 +217,8 @@ void Automovil::validaGasolinaEnTanque(){
         cin>>gasolinaEnTanque;
     }
 }
+//-----------------------------------------------------------------------------------------------
 
-// destructor
+//-----------------------------------DESTRUCTOR----------------------------------------------------
 Automovil::~Automovil(){
 }
