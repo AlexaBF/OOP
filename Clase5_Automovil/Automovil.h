@@ -45,7 +45,7 @@ public:
     void setGasolinaEnTanque(float _gasolinaTanque);
 
     void avanzaAutomovil(float distancia, int pasajeros);
-    void calculaConsumo(float distancia, int pasajeros);
+    float calculaConsumo(float distancia, int pasajeros);
     void llenaTanque();
     void imprimeAutomovil();
     bool requiereMantenimiento();
@@ -127,43 +127,49 @@ void Automovil::setGasolinaEnTanque(float _gasolinaTanque){
 //-----------------------------------FUNCIONES-------------------------------------------------
 //CALCULA SI EL AUTO PUEDE AVANZAR O NO PUEDE AVANZAR
 void Automovil::avanzaAutomovil(float distancia, int pasajeros){
+    float consumo=calculaConsumo(distancia,pasajeros);
+    //debe haber suficiente gasolina (valor de regreso de
+    //calculaConsumo, debe ser mayor o igual a cero y no requerir mantenimiento
+    //(valor de regreso de requiereMantenimiento, debe ser falso).
+    if(consumo>=0 && requiereMantenimiento()==false){
+        /*Si el avance del automóvil es posible, el método desplegará el mensaje
+        “Avance confirmado”, actualizará el valor de kilometraje sumándole
+        la distancia recorrida y restará la gasolina consumida a gasolinaEnTanque.*/
+        cout<<"\nAvance confirmado"<<endl;
+        kilometraje+=distancia;
+        gasolinaEnTanque-=consumo;
+    }
     /*
-    recibe los valores de la distancia en kilómetros que se desea avanzar y
-    el número de pasajeros que pretenden viajar. Este método determinará
-    si el automóvil puede o no avanzar con base en los valores de regreso
-    de los métodos calculaConsumo y requiereManteniemiento: para que el
-    automóvil avance, debe haber suficiente gasolina (valor de regreso de
-    calculaConsumo, debe ser mayor o igual a cero) y no requerir mantenimiento
-    (valor de regreso de requiereMantenimiento, debe ser falso).
-    Si el avance del automóvil es posible, el método desplegará el mensaje
-    “Avance confirmado”, actualizará el valor de kilometraje sumándole
-    la distancia recorrida y restará la gasolina consumida a gasolinaEnTanque.
     De lo contrario, no modificará ningún atributo y desplegará alguno o los
     dos mensajes según la condición presentada: “No hay suficiente gasolina”
     y/o “Mantenimiento requerido”.
     */
+    else if(gasolinaEnTanque<consumo || consumo==-1){
+        cout<<"\nNo hay suficiente gasolina"<<endl;
+    }
+    requiereMantenimiento();
 }
 //CALCULA LA CANTIDAD DE GASOLINA QUE SE REQUIERE PARA AVANZAR
-void Automovil::calculaConsumo(float distancia, int pasajeros){
-    /*
-    recibe la distancia a recorrer y los pasajeros que viajan en el automóvil.
-    El método calcula la cantidad de gasolina que se requerirían para lograr
-    el avance deseado. Tip. Usa el rendimiento del automóvil (cantidad promedio
-    de kilómetros que recorre un automóvil por cada litro de gasolina).
-    Si el automóvil va lleno (viajan todos los pasajeros que caben según numPasajeros),
-    agrega 5% extra de consumo de gasolina a lo calculado por el rendimiento;
-    si viajan menos de la mitad de los pasajeros de su capacidad, resta 4% al
-    consumo calculado.
-    El método regresará la cantidad de litros requeridos para que el
-    utomóvil avance. Regresará -1 si el automóvil no tiene suficiente
-    gasolina para avanzar.
-    */
-    
-    if(numPasajeros=pasajeros){
-        
+float Automovil::calculaConsumo(float distancia, int pasajeros){
+    //Si el automóvil va lleno (viajan todos los pasajeros que caben según numPasajeros),
+    //agrega 5% extra de consumo de gasolina a lo calculado por el rendimiento;
+    float cantidadLitros = distancia*rendimientos;
+    if(numPasajeros==pasajeros){
+        cantidadLitros+= cantidadLitros*0.05;
     }
-   
-
+    //si viajan menos de la mitad de los pasajeros de su capacidad, resta 4% al
+    //consumo calculado.
+    else if(numPasajeros/2>pasajeros){
+        cantidadLitros-=cantidadLitros*0.04;
+    }
+    //El método regresará la cantidad de litros requeridos para que el
+    //automóvil avance. Regresará -1 si el automóvil no tiene suficiente
+    //gasolina para avanzar.
+    if(cantidadLitros>gasolinaEnTanque){
+        return -1;
+    }else{
+        return cantidadLitros;
+    }
 }
 //LLENAR EL TANQUE DEL AUTO
 void Automovil::llenaTanque(){
@@ -174,7 +180,7 @@ void Automovil::llenaTanque(){
 }
 //IMPRIME TODA LA INFORMACIÓN DEL AUTO
 void Automovil::imprimeAutomovil(){
-    cout<<"----Datos del Automóvil----"<<endl;
+    cout<<"\n----Datos del Automóvil----"<<endl;
     cout<<"Marca: "<<marca<<endl;
     cout<<"Modelo: "<<modelo<<endl;
     cout<<"Anio: "<<anio<<endl;
@@ -189,7 +195,7 @@ void Automovil::imprimeAutomovil(){
 bool Automovil::requiereMantenimiento(){
     //Regresa true o false si el mantenimiento es requerido
     if (kilometraje >= 10000){
-        cout<<"Mantenimiento requerido"<<endl;
+        cout<<"\nMantenimiento requerido"<<endl;
         return true;
     }else{
         return false;
@@ -198,8 +204,8 @@ bool Automovil::requiereMantenimiento(){
 //VALIDA LA GASOLINA EN TANQUE SEA MENOR A LA CAPACIDAD EN TANQUE
 float Automovil::validaGasolinaEnTanque(){
     while (gasolinaEnTanque > capacidadTanque){
-        cout<<"Gasolina en tanque es mayor a la capacidad en tanque"<<endl;
-        cout<<"Vuelve a ingresar la gasolina en tanque: ";
+        cout<<"\nGasolina en tanque es mayor a la capacidad en tanque"<<endl;
+        cout<<"\nVuelve a ingresar la gasolina en tanque: ";
         cin>>gasolinaEnTanque;
     }
     return gasolinaEnTanque;
