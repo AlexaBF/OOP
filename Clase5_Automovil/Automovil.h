@@ -49,7 +49,7 @@ public:
     void llenaTanque();
     void imprimeAutomovil();
     bool requiereMantenimiento();
-    void validaGasolinaEnTanque();
+    float validaGasolinaEnTanque();
 
     ~Automovil();
 };
@@ -143,8 +143,8 @@ void Automovil::avanzaAutomovil(float distancia, int pasajeros){
     y/o “Mantenimiento requerido”.
     */
 }
+//CALCULA LA CANTIDAD DE GASOLINA QUE SE REQUIERE PARA AVANZAR
 void Automovil::calculaConsumo(float distancia, int pasajeros){
-
     /*
     recibe la distancia a recorrer y los pasajeros que viajan en el automóvil.
     El método calcula la cantidad de gasolina que se requerirían para lograr
@@ -165,19 +165,14 @@ void Automovil::calculaConsumo(float distancia, int pasajeros){
    
 
 }
+//LLENAR EL TANQUE DEL AUTO
 void Automovil::llenaTanque(){
-    /*
-    muestra la cantidad de litros de gasolina que requiere
-    el tanque del automóvil para estar lleno. Asigna el
-    valor a gasolinaEnTanque de capacidadTanque.
-    Al final, despliega el letrero “Tanque lleno”.
-    */
     int cantidad = capacidadTanque - gasolinaEnTanque;
     gasolinaEnTanque += cantidad;
     cout<<"Cantidad de gasolina que requiere el automóvil para estar lleno "<<cantidad<<" litros."<<endl;
     cout<<"Tanque lleno"<<endl;
 }
-//IMPRIME TODA LA INFORMACIÓN DEL AUTOMÓVIL
+//IMPRIME TODA LA INFORMACIÓN DEL AUTO
 void Automovil::imprimeAutomovil(){
     cout<<"----Datos del Automóvil----"<<endl;
     cout<<"Marca: "<<marca<<endl;
@@ -190,14 +185,9 @@ void Automovil::imprimeAutomovil(){
     cout<<"Capacidad en Tanque: "<<capacidadTanque<<endl;
     cout<<"Gasolina en Tanque: "<<gasolinaEnTanque<<endl;
 }
+//CHECAR KILOMETRAJE DEL AUTO  
 bool Automovil::requiereMantenimiento(){
-    /*
-    debe comprobar si el kilometraje del automóvil ha
-    llegado a 10000 kilómetros recorridos; en caso de
-    que ocurra, desplegará el letrero “Mantenimiento
-    requerido”. El método regresa un valor booleano
-    que informa si el mantenimiento es requerido (true) o no (false).
-    */
+    //Regresa true o false si el mantenimiento es requerido
     if (kilometraje >= 10000){
         cout<<"Mantenimiento requerido"<<endl;
         return true;
@@ -205,19 +195,14 @@ bool Automovil::requiereMantenimiento(){
         return false;
     }
 }
-void Automovil::validaGasolinaEnTanque(){
-    /*
-    valida que al introducir el usuario los datos del automóvil,
-    no dé en gasolinaEnTanque un valor mayor que capacidadEnTanque.
-    Si ocurre un error, muestra un mensaje y se repite la lectura
-    mientras no se introduzca un valor válido. La función regresa
-    un valor correcto del valor de gasolinaEnTanque.
-    */
+//VALIDA LA GASOLINA EN TANQUE SEA MENOR A LA CAPACIDAD EN TANQUE
+float Automovil::validaGasolinaEnTanque(){
     while (gasolinaEnTanque > capacidadTanque){
         cout<<"Gasolina en tanque es mayor a la capacidad en tanque"<<endl;
         cout<<"Vuelve a ingresar la gasolina en tanque: ";
         cin>>gasolinaEnTanque;
     }
+    return gasolinaEnTanque;
 }
 //-----------------------------------------------------------------------------------------------
 
