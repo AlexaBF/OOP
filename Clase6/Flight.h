@@ -10,7 +10,7 @@ class Flight{
 private:
     string date,airplaneModel, fromTo;
     int hour,price,distance, crew, fuel;
-    vector<Passenger> paseengers;
+    vector<Passenger> passengers;
 
 public:
     Flight();

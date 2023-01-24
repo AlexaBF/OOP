@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include "Airline.h"
 using namespace std;
 
@@ -12,7 +11,7 @@ class Airport{
 private:
     int id,totalTransactions,totalDailyIncomes;
     string date, city, country;
-    vector<Airline> Airlines;
+    Airline listaAirlines[NumAirlines];
 public:
     Airport();
 
@@ -34,7 +33,7 @@ public:
 
 //------------------------------CONSTRUCTOR-------------------------------------------
 Airport::Airport(){
-    
+
 }
 
 //----------------------------SETTERS----------------------------------------------
