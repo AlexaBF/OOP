@@ -7,7 +7,7 @@ using namespace std;
 
 const int NumAirlines=3;
 
-class Airport{
+class Airport:Airline{
 private:
     int id,totalTransactions,totalDailyIncomes;
     string date, city, country;
@@ -33,7 +33,10 @@ public:
 
 //------------------------------CONSTRUCTOR-------------------------------------------
 Airport::Airport(){
-
+    string fecha;
+    cout<<"Ingresa la Fecha de operación en formato día/mes/año: ";
+    cin>>fecha;
+    startOperations(fecha);
 }
 
 //----------------------------SETTERS----------------------------------------------
@@ -69,10 +72,23 @@ void Airport::setCountry(string _country){
 
 }
 void Airport::startOperations(string _date){
+    date=_date;
+    cout<<"Ingresa el identificador del aeropuerto: ";//ejem AIMX
+    cin>>id;
+    cout<<"Ingresa la ciudad de operación: ";//ejem CDMX
+    cin>>city;
+    cout<<"Ingrea el país de operación: ";//ejem México
+    cin>>country;
+    setBoardingCity(city);
 
 }
 void Airport::printAllFlights(){
-
+    cout<<"Los vuelos programados para "<<date<<" son: \n";
+    for(int i = 0; i < 3; i++){
+        listaAirlines[i];
+        
+    }
+    
 }
 void Airport::closeOperations(){
 
