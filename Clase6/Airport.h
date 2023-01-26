@@ -68,9 +68,6 @@ string Airport::getCountry(){
 }
 
 //------------------------------------------------------------------------
-void Airport::setCountry(string _country){
-
-}
 void Airport::startOperations(string _date){
     date=_date;
     cout<<"Ingresa el identificador del aeropuerto: ";//ejem AIMX
@@ -85,13 +82,26 @@ void Airport::startOperations(string _date){
 void Airport::printAllFlights(){
     cout<<"Los vuelos programados para "<<date<<" son: \n";
     for(int i = 0; i < 3; i++){
-        listaAirlines[i];
-        
+        cout<<listaAirlines[i].getIncomes()<<endl;
+        cout<<listaAirlines[i].getShortName()<<endl;
+        cout<<listaAirlines[i].getBoardingCity()<<endl;
     }
     
 }
 void Airport::closeOperations(){
-
+    //El número total de vuelos de todas las líneas aéreas
+    //que se programaron ese día (almacenar en totalTransactions)
+    int counter=0,ingresosGenerados=0;
+    for (int i = 0; i < flights.size(); i++){
+        if(flights[i].getDate()==date){
+            counter++;
+        }
+        ingresosGenerados+=flights[i].getPrice();
+    }
+    totalTransactions=counter;
+    //El total de ingresos generados por todos
+    //los vuelos programados (almacenar en totalDailyIncome).
+    totalDailyIncomes=ingresosGenerados;
 }
 
 //----------------------------DESTRUCTOR--------------------------------------------

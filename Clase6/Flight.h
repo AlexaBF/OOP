@@ -6,11 +6,14 @@
 #include "Passenger.h"
 using namespace std;
 
+const int COLUMNAS=4,FILAS=30;
+
 class Flight{
-private:
+protected:
     string date,airplaneModel, fromTo;
     int hour,price,distance, crew, fuel;
     vector<Passenger> passengers;
+    int seats[COLUMNAS][FILAS];
 
 public:
     Flight();
@@ -36,7 +39,7 @@ public:
 };
 
 //----------------------------CONSTRUCTOR--------------------------------------------
-Flight::Flight(/* args */){
+Flight::Flight(){
 }
 //----------------------------SETTERS----------------------------------------------
 void Flight::setAirplaneModel(string _airplaneModel){
@@ -91,7 +94,17 @@ int Flight::getPrice(){
 
 //-------------------------------------------------------------------------
 void Flight::calculateFuel(){
-
+    /*
+    calcula y almacena en el atributo fuel la cantidad de
+    combustible que requerirá el vuelo según el destino.
+    Este método se debe utilizar al momento de estar programando un vuelo.
+    (Tip. Un avión 747 se dice consume alrededor de 1,200 litros por
+    cada 100 kilómetros. Para calcular el combustible de otro tipo de avión,
+    puedes utilizar una proporción de estas cantidades). No se pide datos al
+    usuario y el dato calculado debe mostrar inmediatamente abajo de solicitar 
+    el valor del atributo destino, “El combustible requerido para viajar a x
+    es de z galones”, donde x es el valor del destination y z el valor calculado para fuel.
+    */
 }
 
 //----------------------------DESTRUCTOR--------------------------------------------
