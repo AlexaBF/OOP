@@ -12,7 +12,7 @@ private:
     vector<Usuario> usuarios;
     vector<Aerolinea> aerolineas;
 public:
-    Reserva(/* args */);
+    Reserva();
 
     void cancelarReserva();
     void registrarReserva();
@@ -22,26 +22,45 @@ public:
     void crearUsuario(string _usuario,string _password);
     void borrarUsuario(string _usuario,string _password);
 
+    void crearAerolinea(string _nombre);
+    void borrarAerolinea(string _nombre);
+
     ~Reserva();
 };
 
 Reserva::Reserva(){
 }
 
+//-------------------------------------RESERVAR-----------------------------------------------------------
+void Reserva::registrarReserva(){
+    for (int i = 0; i < aerolineas.size(); i++){
+        cout<<"Aerolínea: "<<aerolineas[i].getNombre();
+    }
+    
+    
+}
 
+//------------------------------------------------------------------------------------------------
+
+//---------------------------------------INICIA SESIÓN-------------------------------------------------
 void Reserva::iniciaSesion(string _user, string _pass){
+    bool flag=false;
     for (int i = 0; i < usuarios.size(); i++){
-        if(usuarios[i].getUsuario()==_user && usuarios[i].getPassword()==_pass){
-            cout<<"Inicio Sesión Correctamente"<<endl;
+        if(usuarios[i].getUsuario()==_user && usuarios[i].getPassword()==_pass){      
+            flag=true;
+            break;
+        } 
+    }
 
-        }else{
-            cout<<"Usuario o Contraseña incorrectos"<<endl;
-        }
-        
+    if(flag){
+        cout<<"Inicio Sesión Correctamente"<<endl;
+    }else{
+        cout<<"Usuario o Contraseña incorrectos"<<endl;
     }
     
 }
 
+//------------------------------------------------------------------------------------------------
 
 Reserva::~Reserva()
 {
