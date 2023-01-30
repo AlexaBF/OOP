@@ -12,17 +12,29 @@ private:
     string nombre;
     vector<Vuelo> vuelos;
 public:
-    Aerolinea(/* args */);
+    Aerolinea();
 
-    void agregarVuelo(Vuelo);
+    void agregarVuelos();
+    void mostrarVuelos();
+
+    string getNombre();
+    void setNombre(string _nombre);
 
     ~Aerolinea();
 };
 
-Aerolinea::Aerolinea(/* args */)
-{
+Aerolinea::Aerolinea(/* args */){
 }
 
-Aerolinea::~Aerolinea()
-{
+
+string Aerolinea::getNombre(){
+    return nombre;
+}
+
+void Aerolinea::setNombre(string _nombre){
+    nombre=_nombre;
+}
+
+
+Aerolinea::~Aerolinea(){
 }
