@@ -35,10 +35,7 @@ Reserva::Reserva(){
 void Reserva::registrarReserva(){
     for (int i = 0; i < aerolineas.size(); i++){
         cout<<"Aerolínea: "<<aerolineas[i].getNombre();
-
-    }
-    
-    
+    } 
 }
 
 //------------------------------------------------------------------------------------------------
