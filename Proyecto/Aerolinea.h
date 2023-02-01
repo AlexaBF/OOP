@@ -14,7 +14,10 @@ private:
 public:
     Aerolinea();
 
-    void agregarVuelos();
+    void agregarVuelos(string _noVuelo,string _nombre,string _destino
+    ,string _duracionViaje,string _detallesAvion,string _fecha
+    ,int _precio,int _km,int _asientosDisponibles,int _asientosTotales);
+
     void mostrarVuelos();
 
     string getNombre();
@@ -23,18 +26,31 @@ public:
     ~Aerolinea();
 };
 
-Aerolinea::Aerolinea(/* args */){
+Aerolinea::Aerolinea(){
+}
+
+void Aerolinea::agregarVuelos(string _noVuelo,string _nombre,string _destino,string _duracionViaje,string _detallesAvion,string _fecha,int _precio,int _km,int _asientosDisponibles,int _asientosTotales){
+    Vuelo viaje;
+    viaje.crearVuelo(_noVuelo,_nombre,_destino,_duracionViaje,_detallesAvion
+    ,_fecha,_precio,_km,_asientosDisponibles,_asientosTotales);
+    vuelos.push_back(viaje);
+}
+
+void Aerolinea::mostrarVuelos(){
+    for (int i = 0; i < vuelos.size(); i++){
+        vuelos[i].mostrarVuelo();
+        
+    }
+    
 }
 
 
 string Aerolinea::getNombre(){
     return nombre;
 }
-
 void Aerolinea::setNombre(string _nombre){
     nombre=_nombre;
 }
-
 
 Aerolinea::~Aerolinea(){
 }
