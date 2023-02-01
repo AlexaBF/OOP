@@ -98,7 +98,6 @@ void Reserva::iniciaSesion(string _user, string _pass){
 
 //------------------------------------------------------------------------------------------------
 
-Reserva::~Reserva()
-{
+Reserva::~Reserva(){
 }
 
