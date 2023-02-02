@@ -11,6 +11,7 @@ class Reserva{
 private:
     vector<Usuario> usuarios;
     vector<Aerolinea> aerolineas;
+    int usuarioActual;
 public:
     Reserva();
 
@@ -81,6 +82,7 @@ bool Reserva::iniciaSesion(string _user, string _pass){
     for (int i = 0; i < usuarios.size(); i++){
         if(usuarios[i].getUsuario()==_user && usuarios[i].getPassword()==_pass){      
             flag=true;
+            usuarioActual=i;
             break;
         } 
     }
