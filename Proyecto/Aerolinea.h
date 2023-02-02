@@ -39,9 +39,7 @@ void Aerolinea::agregarVuelos(string _noVuelo,string _nombre,string _destino,str
 void Aerolinea::mostrarVuelos(){
     for (int i = 0; i < vuelos.size(); i++){
         vuelos[i].mostrarVuelo();
-        
     }
-    
 }
 
 

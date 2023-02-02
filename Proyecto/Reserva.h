@@ -17,7 +17,7 @@ public:
     void cancelarReserva();
     void registrarReserva();
 
-    void iniciaSesion(string _user, string _pass);
+    bool iniciaSesion(string _user, string _pass);
 
     void crearUsuario(string _usuario,string _password);
     void borrarUsuario(string _usuario,string _password);
@@ -76,7 +76,7 @@ void Reserva::borrarAerolinea(string _nombre){
 }
 //------------------------------------------------------------------------------------------------
 //---------------------------------------INICIA SESIÓN-------------------------------------------------
-void Reserva::iniciaSesion(string _user, string _pass){
+bool Reserva::iniciaSesion(string _user, string _pass){
     bool flag=false;
     for (int i = 0; i < usuarios.size(); i++){
         if(usuarios[i].getUsuario()==_user && usuarios[i].getPassword()==_pass){      
@@ -90,7 +90,7 @@ void Reserva::iniciaSesion(string _user, string _pass){
     }else{
         cout<<"Usuario o Contraseña incorrectos"<<endl;
     }
-    
+    return flag;
 }
 
 //------------------------------------------------------------------------------------------------

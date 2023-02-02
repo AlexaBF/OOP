@@ -10,7 +10,7 @@ private:
     string noVuelo,nombre, destino, duracionViaje,detallesAvion,fecha;
     int precio,km,asientosDisponibles,asientosTotales;
 public:
-    Vuelo(/* args */);
+    Vuelo();
     
     string getFecha();
     int getAsientosDisponibles();
