@@ -22,7 +22,6 @@ int main(){
         cin>>user;
         cout<<"Ingresa contraseña: ";
         cin>>pass;
-        
     }
     
     return 0;
