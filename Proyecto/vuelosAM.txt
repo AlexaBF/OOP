@@ -1,0 +1,45 @@
+AM1417
+Los Angeles
+4h 20min
+Boeing 737 MAX
+12 de Abril de 2023
+8200
+2585
+100
+174
+AM908
+Monterrey
+1h 40min
+Boeing 737 MAX
+22 de Febrero de 2023
+1354
+725
+30
+174
+AM508
+Cancún
+2h 30min
+Boeing 737 MAX
+21 de Junio de 2023
+1959
+1285
+120
+174
+AM174
+Tijuana
+3h 58min
+Boeing 737 MAX
+22 de Febrero de 2023
+2289
+2303
+10
+174
+AM208
+Guadalajara
+1h 24min
+Boeing 737-800
+21 de Junio de 2023
+1277
+551
+34
+189

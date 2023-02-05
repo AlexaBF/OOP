@@ -7,16 +7,16 @@ using namespace std;
 
 class Vuelo{
 private:
-    string noVuelo,nombre, destino, duracionViaje,detallesAvion,fecha;
+    string noVuelo, destino, duracionViaje,detallesAvion,fecha;
     int precio,km,asientosDisponibles,asientosTotales;
 public:
     Vuelo();
-    
+
     string getFecha();
     int getAsientosDisponibles();
     int getAsientosTotales();
 
-    void crearVuelo(string _noVuelo,string _nombre,string _destino
+    void crearVuelo(string _noVuelo,string _destino
     ,string _duracionViaje,string _detallesAvion,string _fecha
     ,int _precio,int _km,int _asientosDisponibles,int _asientosTotales);
 
@@ -28,11 +28,10 @@ public:
 Vuelo::Vuelo(){
 }
 
-void Vuelo::crearVuelo(string _noVuelo,string _nombre,string _destino
+void Vuelo::crearVuelo(string _noVuelo,string _destino
     ,string _duracionViaje,string _detallesAvion,string _fecha
     ,int _precio,int _km,int _asientosDisponibles,int _asientosTotales){
     noVuelo=_noVuelo;
-    nombre=_nombre;
     destino=_destino;
     duracionViaje=_duracionViaje;
     detallesAvion=_detallesAvion;
@@ -44,7 +43,6 @@ void Vuelo::crearVuelo(string _noVuelo,string _nombre,string _destino
 }
 
 void Vuelo::mostrarVuelo(){
-    cout<<"Nombre: "<<nombre<<endl;
     cout<<"Número de Vuelo: "<<noVuelo<<endl;
     cout<<"Destino: "<<destino<<endl;
     cout<<"Duración: "<<duracionViaje<<endl;
