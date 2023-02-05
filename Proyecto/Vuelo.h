@@ -13,7 +13,12 @@ public:
     Vuelo();
 
     string getNoVuelo();
+    string getDestino();
+    string getDuracionViaje();
+    string getDetallesAvion();
     string getFecha();
+    int getPrecio();
+    int getKm();
     int getAsientosDisponibles();
     int getAsientosTotales();
 
@@ -28,6 +33,36 @@ public:
 
 Vuelo::Vuelo(){
 }
+
+
+string Vuelo::getNoVuelo(){
+    return noVuelo;
+}
+string Vuelo::getDestino(){
+    return destino;
+}
+string Vuelo::getDuracionViaje(){
+    return duracionViaje;
+}
+string Vuelo::getDetallesAvion(){
+    return detallesAvion;
+}
+string Vuelo::getFecha(){
+    return fecha;
+}
+int Vuelo::getPrecio(){
+    return precio;
+}
+int Vuelo::getKm(){
+    return km;
+}
+int Vuelo::getAsientosDisponibles(){
+    return asientosDisponibles;
+}
+int Vuelo::getAsientosTotales(){
+    return asientosTotales;
+}
+
 
 void Vuelo::crearVuelo(string _noVuelo,string _destino
     ,string _duracionViaje,string _detallesAvion,string _fecha
