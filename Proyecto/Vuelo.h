@@ -12,6 +12,7 @@ private:
 public:
     Vuelo();
 
+    string getNoVuelo();
     string getFecha();
     int getAsientosDisponibles();
     int getAsientosTotales();
