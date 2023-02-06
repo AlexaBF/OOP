@@ -14,7 +14,7 @@ private:
 public:
     Aerolinea();
 
-    void agregarVuelos(string _noVuelo,string _nombre,string _destino
+    void agregarVuelos(string _noVuelo,string _destino
     ,string _duracionViaje,string _detallesAvion,string _fecha
     ,int _precio,int _km,int _asientosDisponibles,int _asientosTotales);
 
@@ -27,11 +27,14 @@ public:
 };
 
 Aerolinea::Aerolinea(){
+    
 }
 
-void Aerolinea::agregarVuelos(string _noVuelo,string _nombre,string _destino,string _duracionViaje,string _detallesAvion,string _fecha,int _precio,int _km,int _asientosDisponibles,int _asientosTotales){
+void Aerolinea::agregarVuelos(string _noVuelo,string _destino
+    ,string _duracionViaje,string _detallesAvion,string _fecha
+    ,int _precio,int _km,int _asientosDisponibles,int _asientosTotales){
     Vuelo viaje;
-    viaje.crearVuelo(_noVuelo,_nombre,_destino,_duracionViaje,_detallesAvion
+    viaje.crearVuelo(_noVuelo,_destino,_duracionViaje,_detallesAvion
     ,_fecha,_precio,_km,_asientosDisponibles,_asientosTotales);
     vuelos.push_back(viaje);
 }
