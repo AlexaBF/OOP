@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 #include "Usuario.h"
 #include "Vuelo.h"
@@ -17,14 +18,14 @@ public:
     Reserva();
 
     void cancelarReserva();
-    void registrarReserva();
+    void registrarReserva(string _noVuelo,int _asientos);
 
     void mostrarVuelos();
-    void mostrarFechasDisponibles();
+    void mostrarPFOD(int _selecciona,string _dato);
 
     bool iniciaSesion(string _user, string _pass);
 
-    void crearUsuario(string _usuario,string _password);
+    void crearUsuario(string _usuario,string _password,int _kmA);
     void borrarUsuario(string _usuario,string _password);
 
     void agregarVuelos(string _nombre,string _noVuelo,string _destino
@@ -36,18 +37,143 @@ public:
 };
 
 Reserva::Reserva(){
-    
+    //VUELOS
+    string nombre,noVuelo, destino, duracionViaje,detallesAvion,fecha;
+    int precio,km,asientosDisponibles,asientosTotales;
+    string line;
+    int cuenta=0;
+    ifstream myfile ("vuelos.txt");
+    if (myfile.is_open()){
+        while ( getline (myfile,line) ){
+            switch (cuenta){
+            case 0:
+                nombre=line;
+                cuenta++;
+                break;
+            case 1:
+                noVuelo=line;
+                cuenta++;
+                break;
+            case 2:
+                destino=line;
+                cuenta++;
+                break;
+            case 3:
+                duracionViaje=line;
+                cuenta++;
+                break;
+            case 4:
+                detallesAvion=line;
+                cuenta++;
+                break;
+            case 5:
+                fecha=line;
+                cuenta++;
+                break;
+            case 6:
+                precio=stoi(line);
+                cuenta++;
+                break;
+            case 7:
+                km=stoi(line);
+                cuenta++;
+                break;
+            case 8:
+                asientosDisponibles=stoi(line);
+                cuenta++;
+                break;
+            case 9:
+                asientosTotales=stoi(line);
+                cuenta=0;
+                agregarVuelos(nombre,noVuelo,destino,duracionViaje,detallesAvion,fecha
+                ,precio,km,asientosDisponibles,asientosTotales);
+                break;
+
+            default:
+                break;
+            }            
+        }
+        myfile.close();
+    }
+    else{
+        cout << "No es posible registrar los vuelos";
+    }
+    //------------------------------------------------
+    //USUARIOS
+    cuenta=0;
+    string usuario, password;
+    int kmAcumulados;
+    ifstream myfile2 ("usuarios.txt");
+    if (myfile2.is_open()){
+        while ( getline (myfile2,line) ){
+            switch (cuenta){
+            case 0:
+                usuario=line;
+                cuenta++;
+                break;
+            case 1:
+                password=line;
+                cuenta++;
+                break;
+
+            case 2:
+                kmAcumulados=stoi(line);
+                cuenta=0;
+                crearUsuario(usuario,password,kmAcumulados);
+                break;
+            default:
+                break;
+            }
+            
+        }
+        myfile2.close();
+    }
+    else{
+        cout << "No es posible registrar los usuarios";
+    } 
+	
 }
 
 //-------------------------------------RESERVAR-----------------------------------------------------------
-void Reserva::registrarReserva(){
+void Reserva::registrarReserva(string _noVuelo,int _asientos){
+    //buscar vuelo
+    int vueloReserva=0;
+    for (int i = 0; i < vuelos.size(); i++){
+        if(vuelos[i].getNoVuelo()==_noVuelo){
+            vueloReserva=i;
+            break;
+        }
+    }
+
+    cout<<"\nVuelo antes de reserva"<<endl;
+    vuelos[vueloReserva].mostrarVuelo();
+
+    cout<<"Tienes "<<usuarios[usuarioActual].getKm()<<" km acumulados."<<endl;
+
+    cout<<"\nVuelo reservado"<<endl;
+    int nuevosAsientos=vuelos[vueloReserva].getAsientosDisponibles()-_asientos;
+    vuelos[vueloReserva].setAsientosDisponibles(nuevosAsientos);
+    vuelos[vueloReserva].mostrarVuelo();
+    cout<<"\nPrecio Final $"<<(vuelos[vueloReserva].getPrecio())*_asientos<<endl;
+    int nuevosKm=vuelos[vueloReserva].getKm() + usuarios[usuarioActual].getKm();
+    usuarios[usuarioActual].setKm(nuevosKm);
+    cout<<"\nKilómetros acumulados finales "<<usuarios[usuarioActual].getKm()<<endl;
+
     
+    //El sistema deberá mostrar los datos de la reservación,
+    //precio final y kilómetros acumulados finales.
+    /*
+    Contar los kilómetros acumulados de cada pasajero.
+    Si tiene más de 50,000 km, entonces el
+    sistema aplica descuento del 40% en el precio del vuelo.
+    */
+
 }
 
 //------------------------------------------------------------------------------------------------
 
 //------------------------------------------USUARIO------------------------------------------------
-void Reserva::crearUsuario(string _usuario,string _password){
+void Reserva::crearUsuario(string _usuario,string _password,int _kmA){
     //verificar que no exista usuario
     bool flag=false;
     for (int i = 0; i < usuarios.size(); i++){
@@ -62,7 +188,7 @@ void Reserva::crearUsuario(string _usuario,string _password){
         Usuario user;
         user.setUsuario(_usuario);
         user.setPassword(_password);
-        user.setKm(0);
+        user.setKm(_kmA);
         usuarios.push_back(user);
     }else{//de lo contrario notificar que ya esta registrado.
         cout<<"Ya existe el usuario: "<<_usuario<<endl;
@@ -93,19 +219,31 @@ void Reserva::agregarVuelos(string _nombre,string _noVuelo,string _destino
 }
 void Reserva::mostrarVuelos(){
     for (int i = 0; i < vuelos.size(); i++){
+        cout<<"-----------------------------------------------"<<endl;
         vuelos[i].mostrarVuelo();
+        cout<<"-----------------------------------------------"<<endl;
     }
     
 }
 
-void Reserva::mostrarFechasDisponibles(){
-    for (int i = 0; i < vuelos.size(); i++){
-        fechas.push_back(vuelos[i].getFecha());//fechas
+//mostrar por fecha o destino
+void Reserva::mostrarPFOD(int selecciona,string _dato){
+    if(selecciona==1){//mostrar vuelos con ese destino
+        for (int i = 0; i < vuelos.size(); i++){
+            if(vuelos[i].getDestino()==_dato){
+                vuelos[i].mostrarVuelo();
+            }
+        }
+
+    }else{//mostrar vuelos con esa fecha
+        for (int i = 0; i < vuelos.size(); i++){
+            if(vuelos[i].getFecha()==_dato){
+                vuelos[i].mostrarVuelo();
+            }
+        }
     }
-    sort(fechas.begin(), fechas.end());
-    fechas.erase(std::unique(fechas.begin(), fechas.end()), fechas.end());
-    
 }
+
 
 //------------------------------------------------------------------------------------------------
 //---------------------------------------INICIA SESIÓN-------------------------------------------------

@@ -23,6 +23,8 @@ public:
     int getAsientosDisponibles();
     int getAsientosTotales();
 
+    void setAsientosDisponibles(int _asientos);
+
     void crearVuelo(string _nombre,string _noVuelo,string _destino
     ,string _duracionViaje,string _detallesAvion,string _fecha
     ,int _precio,int _km,int _asientosDisponibles,int _asientosTotales);
@@ -33,6 +35,10 @@ public:
 };
 
 Vuelo::Vuelo(){
+}
+
+void Vuelo::setAsientosDisponibles(int _asientos){
+    asientosDisponibles=_asientos;
 }
 
 void Vuelo::crearVuelo(string _nombre,string _noVuelo,string _destino
