@@ -1,0 +1,100 @@
+Aeroméxico
+AM1417
+Los Angeles
+4h 20min
+Boeing 737 MAX
+12/Abril/2023
+8200
+2585
+100
+174
+Aeroméxico
+AM908
+Monterrey
+1h 40min
+Boeing 737 MAX
+22/Febrero/2023
+1354
+725
+30
+174
+Aeroméxico
+AM508
+Cancún
+2h 30min
+Boeing 737 MAX
+21/Junio/2023
+1959
+1285
+120
+174
+Aeroméxico
+AM174
+Tijuana
+3h 58min
+Boeing 737 MAX
+22/Febrero/2023
+2289
+2303
+10
+174
+Aeroméxico
+AM208
+Guadalajara
+1h 24min
+Boeing 737-800
+21/Junio/2023
+1277
+551
+34
+189
+VivaAerobus
+VB146
+Los Angeles
+4h 10min
+A320-200neo
+12/Abril/2023
+2258
+2585
+3
+146
+VivaAerobus
+VB1356
+Monterrey
+1h 35min
+A320-200neo
+22/Febrero/2023
+219
+725
+13
+146
+VivaAerobus
+VB1380
+Cancún
+2h 15min
+A320-200neo
+21/Junio/2023
+522
+1285
+130
+146
+VivaAerobus
+VB1248
+Tijuana
+3h 45min
+A320-200neo
+22/Febrero/2023
+1302
+2303
+4
+146
+VivaAerobus
+VB1066
+Guadalajara
+1h 20min
+A320-200neo
+21/Junio/2023
+214
+551
+10
+146
