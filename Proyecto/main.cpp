@@ -2,6 +2,7 @@
 Nombre: Alexa Basurto Flores
 Matrícula: A01422793
 Descripción: reservación y visualización de vuelos.
+última fecha de Modificación: 07/02/2023
 */
 #include <iostream>
 #include "Reserva.h"
@@ -22,11 +23,11 @@ void menu(){
 int main(){
     Reserva reserva;
     string user, pass;
-
+    //crear 3 usuarios prueba
     reserva.crearUsuario("LorenzoBartollini","Test123.?",120010);
     reserva.crearUsuario("PatricioCS","sha123",840);
     reserva.crearUsuario("CarmenElizabethJCC","spk12",345823);
-
+    //crear usuario existente prueba
     reserva.crearUsuario("PatricioCS","sha123",840);
 
     cout<<"Ingresa usuario: ";
@@ -34,6 +35,7 @@ int main(){
     cout<<"Ingresa contraseña: ";
     cin>>pass;
 
+    //mientras el ususario no exista o tenga un dato incorrecta al iniciar sesión
     while(reserva.iniciaSesion(user,pass)==false){
         cout<<"--Intente de nuevo--"<<endl;
         cout<<"Ingresa usuario: ";
@@ -42,9 +44,10 @@ int main(){
         cin>>pass;
     }
     
-    int selecciona=0;
-    menu();
-    cin>>selecciona;
+    int selecciona=0;//selección del menu
+    menu();//mostrar menú
+    cin>>selecciona;//ingresar opción deseada
+    //si se ingresa un número que no corresponde a una de las opciones volver a ingresar opción
     while (selecciona>5 ||selecciona<0){
         cout<<"\nDigite 1,2,3,4,5,0 según la opción que necesite"<<endl;
         cout<<"--->";
@@ -53,31 +56,31 @@ int main(){
     
     string dato="";
     int as=1;
-    while (selecciona!=0){
+    while (selecciona!=0){//mientras no se salga del menu mostrar opciones
         switch (selecciona){
         case 0:
             cout<<"--Sesión cerrada--"<<endl;
             break;
-        case 1:
+        case 1://mostrar todos los vuelos registrados
             reserva.mostrarVuelos();
             menu();
             cin>>selecciona;
             break;
-        case 2:
+        case 2://buscar vuelos por fecha
             cout<<"\nIngresa la fecha a buscar en este formato '21/junio/2023' : ";
             cin>>dato;
             reserva.mostrarPFOD(2,dato);
             menu();
             cin>>selecciona;
             break;
-        case 3:
+        case 3://buscar vuelos por destino
             cout<<"\nIngresa el destino a buscar (ejemplo:Los Angeles, Cancún): ";
             cin>>dato;
             reserva.mostrarPFOD(1,dato);
             menu();
             cin>>selecciona;
             break;
-        case 4:
+        case 4://registrar reserva
             cout<<"\nPara reservar ingresa el Número de vuelo (ejemplo:AM208): ";
             cin>>dato;
             cout<<"y la cantidad de asientos a reservar: ";
@@ -86,7 +89,7 @@ int main(){
             menu();
             cin>>selecciona;
             break;
-        case 5:
+        case 5://cancelar la reserva
             cout<<"\nPara cancelar ingresa el Número de vuelo (ejemplo:AM208): ";
             cin>>dato;
             cout<<"y la cantidad de asientos a cancelar: ";
@@ -95,16 +98,13 @@ int main(){
             menu();
             cin>>selecciona;
             break;
-        default:
+        default://se ingresa un número diferente a las opciones
             cout<<"\nDigite 1,2,3,4,5,0 según la opción que necesite"<<endl;
             cout<<"--->";
             cin>>selecciona;
             break;
         }
     }
-    
-    
-
 
     return 0;
 }

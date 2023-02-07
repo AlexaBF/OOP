@@ -1,5 +1,10 @@
 #pragma once
-
+/*
+Nombre: Alexa Basurto Flores
+Matrícula: A01422793
+Descripción: Clase Vuelo
+última fecha de Modificación: 07/02/2023
+*/
 #include <iostream>
 #include <string>
 
@@ -33,14 +38,17 @@ public:
 
     ~Vuelo();
 };
-
+//------------------------------------------------------------------------------------------------
+//-----------------------------------CONSTRUCTOR------------------------------------------------
 Vuelo::Vuelo(){
 }
-
+//------------------------------------------------------------------------------------------------
+//-----------------------------------SETTERS---------------------------------------------------
 void Vuelo::setAsientosDisponibles(int _asientos){
     asientosDisponibles=_asientos;
 }
-
+//------------------------------------------------------------------------------------------------
+//---------------------------------------CREAR VUELO----------------------------------------------------
 void Vuelo::crearVuelo(string _nombre,string _noVuelo,string _destino
     ,string _duracionViaje,string _detallesAvion,string _fecha
     ,int _precio,int _km,int _asientosDisponibles,int _asientosTotales){
@@ -56,6 +64,8 @@ void Vuelo::crearVuelo(string _nombre,string _noVuelo,string _destino
     asientosTotales=_asientosTotales;
 }
 
+//------------------------------------------------------------------------------------------------
+//--------------------------------------------GETTERS-------------------------------------------------
 string Vuelo::getNombre(){
     return nombre;
 }
@@ -86,10 +96,8 @@ int Vuelo::getAsientosDisponibles(){
 int Vuelo::getAsientosTotales(){
     return asientosTotales;
 }
-
-
-
-
+//------------------------------------------------------------------------------------------------
+//------------------------------------------MOSTRAR VUELO----------------------------------------------
 void Vuelo::mostrarVuelo(){
     cout<<"Aerolinea: "<<nombre<<endl;
     cout<<"Número de Vuelo: "<<noVuelo<<endl;
@@ -102,7 +110,7 @@ void Vuelo::mostrarVuelo(){
     cout<<"Asientos Disponibles: "<<asientosDisponibles<<endl;
     cout<<"Asientos Totales: "<<asientosTotales<<endl;
 }
-
-
+//------------------------------------------------------------------------------------------------
+//-----------------------------------------DESTRUCTOR------------------------------------------------
 Vuelo::~Vuelo(){
 }

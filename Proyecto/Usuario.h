@@ -1,4 +1,10 @@
 #pragma once
+/*
+Nombre: Alexa Basurto Flores
+Matrícula: A01422793
+Descripción: Clase Usuario
+última fecha de Modificación: 07/02/2023
+*/
 #include <iostream>
 #include <string>
 
@@ -20,12 +26,13 @@ public:
 
     ~Usuario();
 };
-
+//------------------------------------------------------------------------------------------------
+//--------------------------------------------CONSTRUCTOR--------------------------------------------
 Usuario::Usuario(){
     kmAcumulados=0;
 }
-
-
+//------------------------------------------------------------------------------------------------
+//------------------------------------------GETTERS---------------------------------------------
 string Usuario::getUsuario(){
     return usuario;
 }
@@ -35,7 +42,8 @@ string Usuario::getPassword(){
 int Usuario::getKm(){
     return kmAcumulados;
 }
-
+//------------------------------------------------------------------------------------------------
+//---------------------------------------------SETTERS-------------------------------------------
 void Usuario::setUsuario(string _user){
     usuario=_user;
 }
@@ -45,7 +53,7 @@ void Usuario::setPassword(string _pass){
 void Usuario::setKm(int _km){
     kmAcumulados=_km;
 }
-
-
+//------------------------------------------------------------------------------------------------
+//------------------------------------------DESTRUCTOR----------------------------------------
 Usuario::~Usuario(){
 }

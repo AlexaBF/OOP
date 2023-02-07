@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="T5ViuqpTSfVZzD8cZLwE" name="Page-1">
-        <mxGraphModel dx="889" dy="400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="883" dy="400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -17,7 +17,7 @@
                     <mxGeometry y="98" width="190" height="142" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" value="Vuelo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="320" width="390" height="440" as="geometry"/>
+                    <mxGeometry x="330" y="340" width="390" height="440" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="- nombre: string&#10;- noVuelo: string&#10;- destino: string&#10;- duracionViaje: string&#10;- detallesAvion: string&#10;- fecha: string&#10;- precio: int&#10;- km: int&#10;- asientosDisponibles: int&#10;- asientosTotales: int&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="21" vertex="1">
                     <mxGeometry y="26" width="390" height="154" as="geometry"/>
@@ -25,20 +25,20 @@
                 <mxCell id="23" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="21" vertex="1">
                     <mxGeometry y="180" width="390" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="+ Vuelo()&#10;+ ~Vuelo()&#10;+string getNombre();&#10;+string getNoVuelo();&#10;+string getDestino();&#10;+string getDuracionViaje();&#10;+string getDetallesAvion();&#10;+string getFecha();&#10;+int getPrecio();&#10;+int getKm();&#10;+int getAsientosDisponibles();&#10;+int getAsientosTotales();&#10;+void setAsientosDisponibles(int _asientos);&#10;+void crearVuelo(string _nombre,string _noVuelo,string _destino&#10;+string _duracionViaje,string _detallesAvion,string _fecha&#10;+int _precio,int _km,int _asientosDisponibles,int _asientosTotales);&#10;+void mostrarVuelo();" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="21" vertex="1">
+                <mxCell id="24" value="+ Vuelo()&#10;+ ~Vuelo()&#10;+string getNombre(): string&#10;+string getNoVuelo(): string&#10;+string getDestino(): string&#10;+string getDuracionViaje(): string&#10;+string getDetallesAvion(): string&#10;+string getFecha(): string&#10;+int getPrecio(): int&#10;+int getKm(): int&#10;+int getAsientosDisponibles(): int&#10;+int getAsientosTotales(): int&#10;+void setAsientosDisponibles(int _asientos): void&#10;+void crearVuelo(string _nombre,string _noVuelo,string _destino,&#10;string _duracionViaje,string _detallesAvion,string _fecha,&#10;int _precio,int _km,int _asientosDisponibles,int _asientosTotales): voidr&#10;+void mostrarVuelo(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="21" vertex="1">
                     <mxGeometry y="188" width="390" height="252" as="geometry"/>
                 </mxCell>
                 <mxCell id="39" value="Reserva" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="310" y="20" width="430" height="280" as="geometry"/>
+                    <mxGeometry x="310" y="10" width="430" height="290" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="vector&lt;Usuario&gt; usuarios;&#10;    vector&lt;Vuelo&gt; vuelos;&#10;    vector&lt;string&gt; fechas;&#10;    int usuarioActual;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="39" vertex="1">
-                    <mxGeometry y="26" width="430" height="44" as="geometry"/>
+                <mxCell id="40" value="- vector&lt;Usuario&gt; usuarios;&#10;- vector&lt;Vuelo&gt; vuelos;&#10;- int usuarioActual;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="39" vertex="1">
+                    <mxGeometry y="26" width="430" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="41" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="39" vertex="1">
-                    <mxGeometry y="70" width="430" height="8" as="geometry"/>
+                    <mxGeometry y="80" width="430" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" value="+ Reserva()&#10;+ ~Reserva()&#10;+ void cancelarReserva(string _noVuelo,int _asientos);&#10;+void registrarReserva(string _noVuelo,int _asientos);&#10;+void mostrarVuelos(); &#10;+void mostrarPFOD(int _selecciona,string _dato);&#10;+bool iniciaSesion(string _user, string _pass);&#10;+void crearUsuario(string _usuario,string _password,int _kmA);&#10;+void borrarUsuario(string _usuario,string _password);&#10;+void agregarVuelos(string _nombre,string _noVuelo,string _destino&#10;+string _duracionViaje,string _detallesAvion,string _fecha&#10;+int _precio,int _km,int _asientosDisponibles,int _asientosTotales);&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="39" vertex="1">
-                    <mxGeometry y="78" width="430" height="202" as="geometry"/>
+                <mxCell id="42" value="+ Reserva()&#10;+ ~Reserva()&#10;+cancelarReserva(string _noVuelo,int _asientos): void&#10;+registrarReserva(string _noVuelo,int _asientos): void&#10;+mostrarVuelos(): void&#10;+mostrarPFOD(int _selecciona,string _dato): void&#10;+iniciaSesion(string _user, string _pass): bool&#10;+crearUsuario(string _usuario,string _password,int _kmA): void&#10;+borrarUsuario(string _usuario,string _password): void&#10;+agregarVuelos(string _nombre,string _noVuelo,string _destino,&#10;c string _duracionViaje,string _detallesAvion,string _fecha,&#10;int _precio,int _km,int _asientosDisponibles,int _asientosTotales): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="39" vertex="1">
+                    <mxGeometry y="88" width="430" height="202" as="geometry"/>
                 </mxCell>
                 <mxCell id="45" value="" style="endArrow=none;startArrow=diamondThin;endFill=0;startFill=1;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeWidth=1;startSize=8;endSize=8;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="42" target="21" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">

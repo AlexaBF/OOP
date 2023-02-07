@@ -1,5 +1,10 @@
 #pragma once
-
+/*
+Nombre: Alexa Basurto Flores
+Matrícula: A01422793
+Descripción: Clase Reserva
+última fecha de Modificación: 07/02/2023
+*/
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -12,7 +17,6 @@ class Reserva{
 private:
     vector<Usuario> usuarios;
     vector<Vuelo> vuelos;
-    vector<string> fechas;
     int usuarioActual;
 public:
     Reserva();
@@ -35,15 +39,16 @@ public:
 
     ~Reserva();
 };
-
-Reserva::Reserva(){
-    //VUELOS
+//------------------------------------------------------------------------------------------------
+//-------------------------------------CONSTRUCTOR-----------------------------------------------------------
+Reserva::Reserva(){//lee los archivos de vuelos y usuarios precargados
+    //archivo de vuelos
     string nombre,noVuelo, destino, duracionViaje,detallesAvion,fecha;
     int precio,km,asientosDisponibles,asientosTotales;
     string line;
     int cuenta=0;
     ifstream myfile ("vuelos.txt");
-    if (myfile.is_open()){
+    if (myfile.is_open()){//abre el txt
         while ( getline (myfile,line) ){
             switch (cuenta){
             case 0:
@@ -96,10 +101,10 @@ Reserva::Reserva(){
         myfile.close();
     }
     else{
-        cout << "No es posible registrar los vuelos";
+        cout<<"No es posible registrar los vuelos"<<endl;
     }
-    //------------------------------------------------
-    //USUARIOS
+    //----------------------------------------------------------------------------------------------
+    //archivo de usuarios
     cuenta=0;
     string usuario, password;
     int kmAcumulados;
@@ -123,17 +128,16 @@ Reserva::Reserva(){
                 break;
             default:
                 break;
-            }
-            
+            } 
         }
         myfile2.close();
     }
     else{
-        cout << "No es posible registrar los usuarios";
+        cout<<"No es posible registrar los usuarios"<<endl;
     } 
 	
 }
-
+//------------------------------------------------------------------------------------------------
 //-------------------------------------RESERVAR-----------------------------------------------------------
 void Reserva::registrarReserva(string _noVuelo,int _asientos){
     //buscar vuelo
@@ -145,8 +149,9 @@ void Reserva::registrarReserva(string _noVuelo,int _asientos){
         }
     }
 
+    //cantidad de asientos disponibles en vuelo después de la reserva
     int nuevosAsientos=vuelos[vueloReserva].getAsientosDisponibles()-_asientos;
-    if(nuevosAsientos<0){//se quiere mas de lo disponible
+    if(nuevosAsientos<0){//se quiere mas asientos de lo disponible
         cout<<"\nEsa cantidad de asientos no esta disponible"<<endl;
     }else{
         cout<<"\nVuelo antes de reserva"<<endl;
@@ -164,14 +169,11 @@ void Reserva::registrarReserva(string _noVuelo,int _asientos){
         }else{
             cout<<"\nPrecio Final $"<<gasto<<endl;
         }
-        
+        //nuevos km sumando los km de vuelo a los acumulados para asignarle al usuario
         int nuevosKm=vuelos[vueloReserva].getKm() + usuarios[usuarioActual].getKm();
         usuarios[usuarioActual].setKm(nuevosKm);
-        cout<<"\nKilómetros acumulados finales "<<usuarios[usuarioActual].getKm()<<endl;
+        cout<<"\nKilómetros acumulados finales "<<usuarios[usuarioActual].getKm()<<" km"<<endl;
     }
-    
-    
-
 }
 
 void Reserva::cancelarReserva(string _noVuelo,int _asientos){
@@ -196,7 +198,7 @@ void Reserva::cancelarReserva(string _noVuelo,int _asientos){
         cout<<"\nVuelo cancelado"<<endl;
         vuelos[vueloReserva].setAsientosDisponibles(nuevosAsientos);
         vuelos[vueloReserva].mostrarVuelo();
-        
+        //nuevos km sumando los km de vuelo a los acumulados para restarle al usuario
         int nuevosKm=usuarios[usuarioActual].getKm() - vuelos[vueloReserva].getKm();
         usuarios[usuarioActual].setKm(nuevosKm);
         cout<<"\nKilómetros acumulados finales despues de cancelación "<<usuarios[usuarioActual].getKm()<<endl;
@@ -205,7 +207,6 @@ void Reserva::cancelarReserva(string _noVuelo,int _asientos){
 }
 
 //------------------------------------------------------------------------------------------------
-
 //------------------------------------------USUARIO------------------------------------------------
 void Reserva::crearUsuario(string _usuario,string _password,int _kmA){
     //verificar que no exista usuario
@@ -216,7 +217,6 @@ void Reserva::crearUsuario(string _usuario,string _password,int _kmA){
             break;
         } 
     }
-
     //si NO se repite el usuario, crearlo
     if(flag==false){
         Usuario user;
@@ -228,8 +228,6 @@ void Reserva::crearUsuario(string _usuario,string _password,int _kmA){
         cout<<"Ya existe el usuario: "<<_usuario<<endl;
     }        
 }
-
-
 void Reserva::borrarUsuario(string _usuario,string _password){
     for (int i = 0; i < usuarios.size(); i++){
         if(usuarios[i].getUsuario()==_usuario && usuarios[i].getPassword()==_password){
@@ -249,7 +247,7 @@ void Reserva::agregarVuelos(string _nombre,string _noVuelo,string _destino
     Vuelo viaje;
     viaje.crearVuelo(_nombre,_noVuelo,_destino,_duracionViaje,_detallesAvion
     ,_fecha,_precio,_km,_asientosDisponibles,_asientosTotales);
-    vuelos.push_back(viaje);
+    vuelos.push_back(viaje);//agregar al vector de vuelos
 }
 void Reserva::mostrarVuelos(){
     for (int i = 0; i < vuelos.size(); i++){
@@ -282,29 +280,27 @@ void Reserva::mostrarPFOD(int selecciona,string _dato){
     }
 }
 
-
 //------------------------------------------------------------------------------------------------
 //---------------------------------------INICIA SESIÓN-------------------------------------------------
 bool Reserva::iniciaSesion(string _user, string _pass){
+    //buscar existencia de usuario
     bool flag=false;
     for (int i = 0; i < usuarios.size(); i++){
         if(usuarios[i].getUsuario()==_user && usuarios[i].getPassword()==_pass){      
-            flag=true;
+            flag=true;//si se encontro
             usuarioActual=i;
             break;
         } 
     }
-
     if(flag){
-        cout<<"Inicio Sesión Correctamente"<<endl;
+        cout<<"\nInicio Sesión Correctamente"<<endl;
     }else{
-        cout<<"Usuario o Contraseña incorrectos"<<endl;
+        cout<<"\nUsuario o Contraseña incorrectos"<<endl;
     }
     return flag;
 }
 
-//------------------------------------------------------------------------------------------------
-
+//-----------------------------------------DESTRUCTOR-------------------------------------------
 Reserva::~Reserva(){
 }
 
