@@ -87,7 +87,11 @@ int main(){
             cin>>selecciona;
             break;
         case 5:
-            reserva.cancelarReserva();
+            cout<<"\nPara cancelar ingresa el Número de vuelo (ejemplo:AM208): ";
+            cin>>dato;
+            cout<<"y la cantidad de asientos a cancelar: ";
+            cin>>as;
+            reserva.cancelarReserva(dato,as);
             menu();
             cin>>selecciona;
             break;

@@ -17,7 +17,7 @@ private:
 public:
     Reserva();
 
-    void cancelarReserva();
+    void cancelarReserva(string _noVuelo,int _asientos);
     void registrarReserva(string _noVuelo,int _asientos);
 
     void mostrarVuelos();
@@ -147,12 +147,12 @@ void Reserva::registrarReserva(string _noVuelo,int _asientos){
 
     int nuevosAsientos=vuelos[vueloReserva].getAsientosDisponibles()-_asientos;
     if(nuevosAsientos<0){//se quiere mas de lo disponible
-        cout<<"Esa cantidad de asientos no esta disponible"<<endl;
+        cout<<"\nEsa cantidad de asientos no esta disponible"<<endl;
     }else{
         cout<<"\nVuelo antes de reserva"<<endl;
         vuelos[vueloReserva].mostrarVuelo();
 
-        cout<<"Tienes "<<usuarios[usuarioActual].getKm()<<" km acumulados."<<endl;
+        cout<<"\nTienes "<<usuarios[usuarioActual].getKm()<<" km acumulados."<<endl;
 
         cout<<"\nVuelo reservado"<<endl;
         vuelos[vueloReserva].setAsientosDisponibles(nuevosAsientos);
@@ -174,7 +174,33 @@ void Reserva::registrarReserva(string _noVuelo,int _asientos){
 
 }
 
-void Reserva::cancelarReserva(){
+void Reserva::cancelarReserva(string _noVuelo,int _asientos){
+    //buscar vuelo
+    int vueloReserva=0;
+    for (int i = 0; i < vuelos.size(); i++){
+        if(vuelos[i].getNoVuelo()==_noVuelo){
+            vueloReserva=i;
+            break;
+        }
+    }
+
+    int nuevosAsientos=vuelos[vueloReserva].getAsientosDisponibles()+_asientos;
+    if(nuevosAsientos>vuelos[vueloReserva].getAsientosTotales()){//se quiere mas de lo disponible
+        cout<<"\nEsa cantidad de asientos no es posible"<<endl;
+    }else{
+        cout<<"\nVuelo antes de cancelación"<<endl;
+        vuelos[vueloReserva].mostrarVuelo();
+
+        cout<<"\nTienes "<<usuarios[usuarioActual].getKm()<<" km acumulados."<<endl;
+
+        cout<<"\nVuelo cancelado"<<endl;
+        vuelos[vueloReserva].setAsientosDisponibles(nuevosAsientos);
+        vuelos[vueloReserva].mostrarVuelo();
+        
+        int nuevosKm=usuarios[usuarioActual].getKm() - vuelos[vueloReserva].getKm();
+        usuarios[usuarioActual].setKm(nuevosKm);
+        cout<<"\nKilómetros acumulados finales despues de cancelación "<<usuarios[usuarioActual].getKm()<<endl;
+    }
 
 }
 
