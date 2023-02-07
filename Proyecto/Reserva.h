@@ -145,28 +145,36 @@ void Reserva::registrarReserva(string _noVuelo,int _asientos){
         }
     }
 
-    cout<<"\nVuelo antes de reserva"<<endl;
-    vuelos[vueloReserva].mostrarVuelo();
-
-    cout<<"Tienes "<<usuarios[usuarioActual].getKm()<<" km acumulados."<<endl;
-
-    cout<<"\nVuelo reservado"<<endl;
     int nuevosAsientos=vuelos[vueloReserva].getAsientosDisponibles()-_asientos;
-    vuelos[vueloReserva].setAsientosDisponibles(nuevosAsientos);
-    vuelos[vueloReserva].mostrarVuelo();
-    cout<<"\nPrecio Final $"<<(vuelos[vueloReserva].getPrecio())*_asientos<<endl;
-    int nuevosKm=vuelos[vueloReserva].getKm() + usuarios[usuarioActual].getKm();
-    usuarios[usuarioActual].setKm(nuevosKm);
-    cout<<"\nKilómetros acumulados finales "<<usuarios[usuarioActual].getKm()<<endl;
+    if(nuevosAsientos<0){//se quiere mas de lo disponible
+        cout<<"Esa cantidad de asientos no esta disponible"<<endl;
+    }else{
+        cout<<"\nVuelo antes de reserva"<<endl;
+        vuelos[vueloReserva].mostrarVuelo();
 
+        cout<<"Tienes "<<usuarios[usuarioActual].getKm()<<" km acumulados."<<endl;
+
+        cout<<"\nVuelo reservado"<<endl;
+        vuelos[vueloReserva].setAsientosDisponibles(nuevosAsientos);
+        vuelos[vueloReserva].mostrarVuelo();
+        int gasto=(vuelos[vueloReserva].getPrecio())*_asientos;
+        if(usuarios[usuarioActual].getKm()>50000){//iene más de 50,000 km aplica 40% de descuento
+            gasto= gasto * .4;
+            cout<<"\nPrecio Final con 40 porciento de descuento $"<<gasto<<endl;
+        }else{
+            cout<<"\nPrecio Final $"<<gasto<<endl;
+        }
+        
+        int nuevosKm=vuelos[vueloReserva].getKm() + usuarios[usuarioActual].getKm();
+        usuarios[usuarioActual].setKm(nuevosKm);
+        cout<<"\nKilómetros acumulados finales "<<usuarios[usuarioActual].getKm()<<endl;
+    }
     
-    //El sistema deberá mostrar los datos de la reservación,
-    //precio final y kilómetros acumulados finales.
-    /*
-    Contar los kilómetros acumulados de cada pasajero.
-    Si tiene más de 50,000 km, entonces el
-    sistema aplica descuento del 40% en el precio del vuelo.
-    */
+    
+
+}
+
+void Reserva::cancelarReserva(){
 
 }
 
@@ -231,14 +239,18 @@ void Reserva::mostrarPFOD(int selecciona,string _dato){
     if(selecciona==1){//mostrar vuelos con ese destino
         for (int i = 0; i < vuelos.size(); i++){
             if(vuelos[i].getDestino()==_dato){
+                cout<<"-----------------------------------------------"<<endl;
                 vuelos[i].mostrarVuelo();
+                cout<<"-----------------------------------------------"<<endl;
             }
         }
 
     }else{//mostrar vuelos con esa fecha
         for (int i = 0; i < vuelos.size(); i++){
             if(vuelos[i].getFecha()==_dato){
+                cout<<"-----------------------------------------------"<<endl;
                 vuelos[i].mostrarVuelo();
+                cout<<"-----------------------------------------------"<<endl;
             }
         }
     }
