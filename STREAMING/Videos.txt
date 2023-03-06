@@ -1,0 +1,6 @@
+ID: 1 | Tipo: S | Nombre: Stranger Things | Género: Ciencia Ficción | Duración: 33 min
+ID: 2 | Tipo: P | Nombre: Arrival | Género: Ciencia Ficción | Duración: 156 min
+ID: 3 | Tipo: P | Nombre: Interestellar | Género: Ciencia Ficción | Duración: 156 min
+ID: 4 | Tipo: S | Nombre: TWD | Género: Suspenso | Duración: 45 min
+ID: 5 | Tipo: S | Nombre: Billions | Género: Drama | Duración: 58 min
+

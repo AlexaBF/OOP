@@ -1,0 +1,4 @@
+ID: 1 | Temporada: 1 | Episodio: 1 | Título: MADMAX | Calif: 4.5
+ID: 4 | Temporada: 1 | Episodio: 1 | Título: Rick | Calif: 4.5
+ID: 5 | Temporada: 1 | Episodio: 1 | Título: Axel | Calif: 4.5
+

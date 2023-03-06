@@ -1,0 +1,1 @@
+Debug/Video.cpp.o Debug/Pelicula.cpp.o Debug/Serie.cpp.o Debug/main.cpp.o
