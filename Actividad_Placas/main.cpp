@@ -1,7 +1,4 @@
 /*
-Nombre: Alexa Basurto FlosinRepetir
-Matrícula: A01422793
-Fecha de creación: 09/01/2023
 Descripción: Leer un archivo texto conteniendo matrículas
 de aeronaves,  e indique cuáles son las 3
 placas con los que se tiene mayor contacto.

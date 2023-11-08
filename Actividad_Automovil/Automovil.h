@@ -1,7 +1,4 @@
 /*
-Nombre: Alexa Basurto FlosinRepetir
-Matrícula: A01422793
-Fecha de creación: 19/01/2023
 Descripción: clase de Automovil
 */
 #pragma once

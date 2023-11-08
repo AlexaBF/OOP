@@ -1,10 +1,3 @@
-/*
-Nombre: Alexa Basurto Flores
-Matrícula:A01422793
-descripción: examen
-fecha de creación: 02/02/2023
-*/
-
 #include <iostream>
 #include "Empleado.h"
 #include "Fecha.h"

@@ -1,7 +1,4 @@
 /*
-Nombre: Alexa Basurto FlosinRepetir
-Matrícula: A01422793
-Fecha de creación: 16/01/2023
 Descripción: Ejercicio agendado de citas para dentista
 */
 #include <iostream>
