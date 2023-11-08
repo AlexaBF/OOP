@@ -1,5 +1,5 @@
 /*
-Nombre: Alexa Basurto FlosinRepetir
+Nombre: Alexa Basurto Flores
 Matrícula: A01422793
 Fecha de creación: 19/01/2023
 Descripción: sistema de control de uso de autos
