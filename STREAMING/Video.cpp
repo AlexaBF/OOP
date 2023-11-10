@@ -19,7 +19,7 @@ Video::Video(int _tipo,int _id,string _nombre,string _genero,float _duracion){
 void Video::leerArchivo(){
     FILE *fp;
     int c;
-    fp=fopen("/Users/alexabasurto/Desktop/STREAMING/STREAMING/Videos.txt","r");
+    fp=fopen("Videos.txt","r");
     while (1) {
         c=fgetc(fp);
         if (feof(fp)) {

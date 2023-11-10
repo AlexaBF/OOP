@@ -1,13 +1,5 @@
-//
-//  Cancha.hpp
-//  Examen
-//
-//  Created by Alexa Basurto on 08/06/20.
-//  Copyright © 2020 Alexa Basurto. All rights reserved.
-//
-
-#ifndef Cancha_hpp
-#define Cancha_hpp
+//  Created on 08/06/20.
+#pragma once
 
 #include <stdio.h>
 #include <iostream>
@@ -35,4 +27,22 @@ public:
     }
     ~Cancha();
 };
-#endif /* Cancha_hpp */
+
+Cancha::Cancha(){
+}
+Cancha::Cancha(int _jugadores,string _tipo,string _cancha):Fútbol(_jugadores,_tipo){
+    cancha=_cancha;
+}
+
+void Cancha::setCancha(string _cancha){
+    cancha=_cancha;
+}
+string Cancha::getCancha(){
+    cout<<"cancha: "<< cancha<<endl;
+    return cancha;
+}
+
+
+Cancha::~Cancha(){
+}
+

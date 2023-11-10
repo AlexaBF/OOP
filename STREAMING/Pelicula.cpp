@@ -14,7 +14,7 @@ void Pelicula::leerArchivoP(){
     leerArchivo();
     FILE *fp;
     int c;
-    fp=fopen("/Users/alexabasurto/Desktop/STREAMING/STREAMING/Peli.txt","r");
+    fp=fopen("Peli.txt","r");
     while (1) {
         c=fgetc(fp);
         if (feof(fp)) {

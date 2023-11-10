@@ -1,12 +1,7 @@
-//
-//  main.cpp
-//  Examen
-//
-//  Created by Alexa Basurto on 08/06/20.
-//  Copyright © 2020 Alexa Basurto. All rights reserved.
-//
-#include "Fútbol.hpp"
-#include "Cancha.hpp"
+//  Created on 08/06/20.
+
+#include "Futbol.h"
+#include "Cancha.h"
 #include <iostream>
 using namespace std;
 int main() {

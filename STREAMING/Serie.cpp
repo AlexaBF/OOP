@@ -17,7 +17,7 @@ void Serie::leerArchivoS(){
     leerArchivo();
     FILE *fp;
     int c;
-    fp=fopen("/Users/alexabasurto/Desktop/STREAMING/STREAMING/Serie.txt","r");
+    fp=fopen("Serie.txt","r");
     while (1) {
         c=fgetc(fp);
         if (feof(fp)) {
