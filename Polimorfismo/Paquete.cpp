@@ -1,12 +1,5 @@
-//
-//  Paquete.cpp
-//  poli
-//
-//  Created by Alexa Basurto on 28/05/20.
-//  Copyright © 2020 Alexa Basurto. All rights reserved.
-//
-//
-//
+//  Created on 28/05/20.
+
 // Implementacion de la Clase DERIVADA Paquete
 #include "Paquete.hpp"
 #include <string>

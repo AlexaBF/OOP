@@ -1,10 +1,4 @@
-//
-//  Serie.cpp
-//  STREAMING
-//
-//  Created by Alexa Basurto on 11/06/20.
-//  Copyright © 2020 Alexa Basurto. All rights reserved.
-//
+//  Created on 11/06/20.
 
 #include "Serie.hpp"
 #include <string>

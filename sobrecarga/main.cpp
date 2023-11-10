@@ -1,10 +1,4 @@
-//
-//  main.cpp
-//  sobrecarga
-//
-//  Created by Alexa Basurto on 03/06/20.
-//  Copyright © 2020 Alexa Basurto. All rights reserved.
-//
+//  Created on 03/06/20.
 
 #include <iostream>
 #include "Rect.hpp"

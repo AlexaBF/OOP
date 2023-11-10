@@ -1,4 +1,4 @@
-// Clase Alumno, herda de Persona
+// Clase Alumno, hereda de Persona
 // MLBC
 
 #ifndef ALUMNO_H
