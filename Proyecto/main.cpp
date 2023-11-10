@@ -1,6 +1,4 @@
 /*
-Nombre: Alexa Basurto Flores
-Matrícula: A01422793
 Descripción: reservación y visualización de vuelos.
 última fecha de Modificación: 07/02/2023
 */
