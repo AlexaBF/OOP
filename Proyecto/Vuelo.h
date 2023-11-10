@@ -1,7 +1,5 @@
 #pragma once
 /*
-Nombre: Alexa Basurto Flores
-Matrícula: A01422793
 Descripción: Clase Vuelo
 última fecha de Modificación: 07/02/2023
 */
