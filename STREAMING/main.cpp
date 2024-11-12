@@ -5,6 +5,8 @@
 #include "Video.h"
 #include "Pelicula.h"
 #include "Serie.h"
+using namespace std;
+
 int main() {
     int opcion;
     cout<<"\n------Digite la opción deseada--------"<<endl;
