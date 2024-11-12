@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include <iostream>
-#include "Video.hpp"
-#include "Pelicula.hpp"
-#include "Serie.hpp"
+#include "Video.h"
+#include "Pelicula.h"
+#include "Serie.h"
 int main() {
     int opcion;
     cout<<"\n------Digite la opción deseada--------"<<endl;
