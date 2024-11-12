@@ -1,7 +1,7 @@
 //  Created on 11/06/20.
 
-#ifndef Video_hpp
-#define Video_hpp
+#ifndef Video_H
+#define Video_H
 
 #include <stdio.h>
 #include <iostream>
@@ -21,4 +21,4 @@ public: //metodos
     void mostrarVideo();
     virtual ~Video();
 };
-#endif /* Video_hpp */
+#endif 
